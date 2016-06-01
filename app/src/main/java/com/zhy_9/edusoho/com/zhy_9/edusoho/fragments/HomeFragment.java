@@ -33,8 +33,10 @@ public class HomeFragment extends Fragment{
     public void initView(){
         topBar = (Toolbar) getActivity().findViewById(R.id.home_toolbar);
         topBar.setTitle("万科集团");
+        topBar.setTitleTextColor(getResources().getColor(R.color.text_color));
+        topBar.setBackgroundColor(getResources().getColor(R.color.toolbar_background));
 
-        topBar.setNavigationIcon(R.mipmap.ic_launcher);
+        topBar.setNavigationIcon(R.drawable.left_menu);
     }
 
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,43 +8,47 @@
         android:id="@+id/home_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/toolbar_background">
+        android:background="@color/toolbar_background"
+        android:elevation="24dp">
 
     </android.support.v7.widget.Toolbar>
+
     <ScrollView
         android:id="@+id/home_page_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/home_toolbar" >
+        android:layout_below="@+id/home_toolbar">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/homepage_pager"
                 android:layout_width="match_parent"
-                android:layout_height="50dp" >
+                android:layout_height="80dp">
+
             </android.support.v4.view.ViewPager>
 
             <LinearLayout
+                android:id="@+id/home_menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/homepage_pager">
+                android:layout_below="@+id/homepage_pager"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/integral_sign_in"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/rank_sign_in" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -57,49 +62,51 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/rank" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="排行榜" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/study_record"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/study_record" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="学习记录" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/my_hse"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/my_hse" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -109,23 +116,223 @@
             </LinearLayout>
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:elevation="5dp">
-            </android.support.v7.widget.CardView>
-            <LinearLayout
+                android:id="@+id/rank_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_below="@+id/home_menu"
+                android:elevation="24dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="3dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/rank_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="排行情况" />
+
+                    <Spinner
+                        android:id="@+id/rank_status_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/rank_text">
+
+                    </Spinner>
+
+                    <ImageView
+                        android:id="@+id/rank_more_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <View
+                        android:id="@+id/rank_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/rank_more_img"
+                        android:layout_margin="5dp"
+                        android:background="@color/grey_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rank_link"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/score" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="积分" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="86060"
+                                android:textColor="@color/toolbar_background" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/rank_no" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="排名" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="56"
+                                android:textColor="@color/toolbar_background" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/on_live_people" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="在线人数" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="128806"
+                                android:textColor="@color/toolbar_background" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/news_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rank_card_view"
+                android:elevation="24dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="3dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="新闻资讯"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/text_medium_size" />
+
+                    <ImageView
+                        android:id="@+id/news_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <View
+                        android:id="@+id/news_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/news_more"
+                        android:layout_margin="5dp"
+                        android:background="@color/grey_color" />
+
+                    <ImageView
+                        android:id="@+id/news_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/news_link"
+                        android:src="@drawable/news_img" />
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/news_img">
+
+                    </ListView>
+
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/news_information"
+                android:id="@+id/course_layout">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_color"
-                    android:text="新闻资讯"
-                    android:textSize="@dimen/text_medium_size"/>
+                    android:layout_margin="5dp"
+                    android:text="课程推荐" />
 
-            </LinearLayout>
+                <ImageView
+                    android:id="@+id/course_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/bottom_ad" />
+
+                <GridView
+                    android:id="@+id/course_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/course_more">
+
+                </GridView>
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:layout_below="@+id/course_layout"/>
         </RelativeLayout>
     </ScrollView>
 

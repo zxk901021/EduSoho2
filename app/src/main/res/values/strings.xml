@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EduSoho</string>
+    <string name="title_activity_launch">launch</string>
 </resources>
