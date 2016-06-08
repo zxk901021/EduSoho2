@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账号"
+        android:textColor="@color/login_text_color"
+        android:layout_margin="15dp"
+        android:id="@+id/login_user_hint"/>
+
+    <EditText
+        android:id="@+id/login_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_user_hint"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="请输入手机号"
+        android:textColorHint="@color/hint_color"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_pass_hint"
+        android:layout_below="@+id/login_username"
+        android:text="密码"
+        android:layout_margin="15dp"
+        android:textColor="@color/login_text_color"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_password"
+        android:layout_below="@+id/login_pass_hint"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="请输入密码"
+        android:textColorHint="@color/hint_color"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="记住密码"
+        android:textColor="@color/login_text_color"
+        android:id="@+id/password_flag"
+        android:layout_below="@+id/login_password"
+        android:layout_margin="15dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="登录"
+        android:textColor="@color/window_background"
+        android:background="@color/toolbar_background"
+        android:layout_below="@+id/password_flag"
+        android:id="@+id/login_submit"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="找回密码"
+        android:textColor="@color/toolbar_background"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/get_back_password"
+        android:layout_below="@+id/login_submit"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/register_hint_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="| 还没有注册账号？"
+        android:textColor="@color/hint_color"
+        android:layout_below="@+id/login_submit"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/get_back_password"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/register_now"
+        android:layout_below="@+id/login_submit"
+        android:layout_toRightOf="@+id/register_hint_info"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/toolbar_background"
+        android:text="立即注册"
+        android:layout_marginTop="15dp"/>
+
+</RelativeLayout>

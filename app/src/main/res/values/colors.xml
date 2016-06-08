@@ -7,4 +7,6 @@
     <color name="window_background">#ffffff</color>
     <color name="text_color">#000000</color>
     <color name="grey_color">#f5f5f5</color>
+    <color name="login_text_color">#616161</color>
+    <color name="hint_color">#919191</color>
 </resources>
